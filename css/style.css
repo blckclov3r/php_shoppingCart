@@ -1,0 +1,13 @@
+.navbar ul #search {
+    width: 300px;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    position: relative;
+}
+
+.navbar ul #search_btn {
+    top: 10px;
+    left: 20px;
+    position: relative;
+}
