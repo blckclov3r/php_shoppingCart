@@ -229,3 +229,24 @@ ul li span {
     border: 1px solid #ccc;
 }
 
+.container-fluid .panel-body #login{
+    float: right;
+    margin-top: 4px;
+}
+
+.container-fluid .panel-body:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.container-fluid .panel-body input{
+    margin-top: 2px;
+}
+
+.container-fluid .panel-body label{
+    margin-top: 4px;
+}
+.container-fluid .panel-body a{
+    line-height: 2;
+}

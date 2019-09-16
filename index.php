@@ -23,18 +23,56 @@
                     <li><input type="submit" class="btn btn-primary" value="Search" id="search_btn"></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
+                        <div class="dropdown-menu" style="width: 420px;">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-3">s1.No</div>
+                                        <div class="col-md-3">Product Image</div>
+                                        <div class="col-md-3">Product Name</div>
+                                        <div class="col-md-3">Price in $.</div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    
+                                </div>
+                                <div class="panel-footer">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signin</a>
-                        <ul class="dropdown-menu">
-                            <li>Helloworld</li>
-                        </ul>
+                        <div class="dropdown-menu">
+                            <div style="width: 320px;">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">Login</div>
+                                    <div class="panel-body">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" required/>
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" required/>
+                                        <a href="#" style="list-style: none; text-decoration: none; ">Forgotten Password</a>
+                                        <input type="submit" class="btn btn-success" id="login" value="Login"/>
+                                    </div>
+                                    <div class="panel-footer" id="e_msg"></div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li><a href="#">Signup</a></li>
                 </ul>
             </div>
         </div>
-        <br/> <br/><br/> <br/>
+
+        <div style="display: block; content:''; clear: both;">
+             <br/> <br/><br/> <br/>
+        </div>
+        
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1"></div>
