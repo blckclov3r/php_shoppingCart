@@ -24,7 +24,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
-                    <li><a href="#">Signin</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signin</a>
+                        <ul class="dropdown-menu">
+                            <li>Helloworld</li>
+                        </ul>
+                    </li>
                     <li><a href="#">Signup</a></li>
                 </ul>
             </div>
