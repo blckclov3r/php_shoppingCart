@@ -1,0 +1,47 @@
+CREATE TABLE user_info(
+    user_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    address1 VARCHAR(255) NOT NULL,
+    address2 VARCHAR(255) NOT NULL
+    );
+
+
+CREATE TABLE  products(
+    product_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    product_cat INT(11) NOT NULL,
+    product_brand INT(11) NOT NULL,
+    product_price INT(11) NOT NULL,
+    product_desc TEXT NOT NULL,
+    product_image TEXT NOT NULL,
+    product_keywords TEXT NOT NULL
+    );
+    
+
+ALTER TABLE products ADD product_title VARCHAR(255) NOT NULL AFTER product_brand;
+
+CREATE TABLE categories(
+    cat_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    cat_title TEXT NOT NULL
+    );
+
+CREATE TABLE cart(
+    id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    p_id INT(11) NOT NULL,
+    ip_add VARCHAR(255) NOT NULL,
+    user_id INT(11) NOT NULL,
+    product_title VARCHAR(255) NOT NULL,
+	product_image TEXT NOT NULL,
+    qty INT(11) NOT NULL,
+    price INT(11) NOT NULL,
+    total_amount INT(11) NOT NULL
+    );
+
+CREATE TABLE brands(
+    brand_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    brand_title VARCHAR(255) NOT NULL
+);
+    
