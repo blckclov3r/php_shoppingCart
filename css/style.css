@@ -210,3 +210,22 @@ body {
 ul li span {
     margin-right: 6px;
 }
+
+.container-fluid #addCartBtn{
+    float: right;
+}
+
+.container-fluid .panel-heading:after{
+    clear: both;
+    display: block;
+    content: "";
+}
+
+
+
+.container-fluid .panel img{
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+}
+
