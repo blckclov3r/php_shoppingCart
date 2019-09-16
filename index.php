@@ -28,9 +28,34 @@
                     <li><a href="#">Signup</a></li>
                 </ul>
             </div>
-            
         </div>
-       
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <div class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#"><h4>Categories</h4></a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </div>
+                    <div class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#"><h4>Brand</h4></a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Categories</a></li>
+                    </div>
+                </div>
+                <div class="col-md-8"></div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
 
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/main.js"></script>
