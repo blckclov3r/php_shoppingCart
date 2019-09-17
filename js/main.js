@@ -45,11 +45,26 @@ $(document).ready(function() {
         $.ajax({
             url: "action.php",
             method: "POST",
-            data: {getSelected_category:1, cat_id:cid},
+            data: {selectedCategory:1, cat_id:cid},
             success: function (response) {
                 $("#get_product").html(response);
             }
         });
     });
+
+    $('body').delegate('.brand','click',function(response){
+        response.preventDefault();
+        var bid = $(this).attr('bid');
+        // alert(bid);
+        $.ajax({
+            url: "action.php",
+            method: "POST",
+            data: {selectedBrand:1,brand_id:bid},
+            success: function(response){
+                $("#get_product").html(response);
+            }
+        });
+    });
+
 
 });

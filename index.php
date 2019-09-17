@@ -1,6 +1,4 @@
-<?php
-    require 'action.php';
-?>
+
 
 <!DOCTYPE html> 
 <html class="no-js"> 
