@@ -36,6 +36,36 @@
              }
         }
 
+        public function fetchProduct($table){
+            $sql = "SELECT * FROM ".$table." ORDER BY RAND() LIMIT 0,12";
+            $query = mysqli_query($this->conn,$sql);
+            while($row = mysqli_fetch_assoc($query)){
+                if($row > 0){
+                   $pro_id = $row['product_id'];
+                   $pro_cat = $row['product_brand'];
+                   $pro_brand = $row['product_brand'];
+                   $pro_title = $row['product_title'];
+                   $pro_price = $row['product_price'];
+                   $pro_desc = $row['product_desc'];
+                   $pro_image = $row['product_image'];
+                   $pro_keywords = $row['product_keywords'];
+                   echo "
+                     <div class='col-md-4'>
+                        <div class='panel panel-info'>
+                            <div class='panel-heading'>$pro_title</div>
+                            <div class='panel-body'><img src='img/$pro_image'></div>
+                            <div class='panel-heading'>
+                                    $..$pro_price
+                                    <button class='btn btn-danger' id='addCartBtn'>AddToCart</button>
+                            </div>
+                         </div>
+                      </div> ";
+                }
+              
+            }
+            
+        }
+
     }
 
     $obj = new DatabaseOperation();
@@ -47,6 +77,10 @@
 
     if(isset($_POST['brand'])){
         $obj->fetchBrand("brands");
+    }
+
+    if(isset($_POST['getProduct'])){
+        $obj->fetchProduct("products");
     }
 
 ?>

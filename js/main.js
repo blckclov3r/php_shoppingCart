@@ -1,6 +1,8 @@
 $(document).ready(function() {
+
     cat();
     brand();
+    product();
 
     function cat(){
         $.ajax({
@@ -20,6 +22,17 @@ $(document).ready(function() {
             data: {brand:1},
             success: function (response) {
                 $("#get_brand").html(response);
+            }
+        });
+    }
+
+    function product(){
+        $.ajax({
+            url: "action.php",
+            method: "POST",
+            data:{getProduct:1},
+            success: function(response){
+                $("#get_product").html(response);
             }
         });
     }

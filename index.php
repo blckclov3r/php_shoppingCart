@@ -81,56 +81,17 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-2">
+                    <!-- brand & category -->
                     <div id="get_category"> </div>
-                    <!-- <div class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#"><h4>Categories</h4></a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                    </div> -->
                     <div id="get_brand"></div>
-                    <!-- <div class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#"><h4>Brand</h4></a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Categories</a></li>
-                    </div> -->
+                   
                 </div>
                 <div class="col-md-8">
                     <div class="panel panel-info">
                         <div class="panel-heading">Products</div>
                         <div class="panel-body">
-                            <div class="col-md-4">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">Havoc</div>
-                                    <div class="panel-body"><img src="img/havoc.jpg"></div>
-                                    <div class="panel-heading">
-                                         $500.00
-                                         <button class="btn btn-danger" id="addCartBtn">AddToCart</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">Altrove</div>
-                                    <div class="panel-body"><img src="img/altrove.jpg"></div>
-                                    <div class="panel-heading">
-                                         $500.00
-                                         <button class="btn btn-danger" id="addCartBtn">AddToCart</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">Byzantine</div>
-                                    <div class="panel-body"><img src="img/byzantine.jpg"/></div>
-                                    <div class="panel-heading"> $500.00                                       
-                                         <button class="btn btn-danger" id="addCartBtn">AddToCart</button>
-                                    </div>
-                                </div>
-                            </div>
+                             <!-- products -->
+                            <div id="get_product"></div>
                         </div>
                         <div class="panel-footer">&copy; 2019</div>
                     </div>
