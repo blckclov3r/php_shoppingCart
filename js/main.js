@@ -66,5 +66,18 @@ $(document).ready(function() {
         });
     });
 
+    $("#search_btn").click(function(){
+        var key = $("#search").val();
+        if(key != ""){
+            $.ajax({
+                method: "POST",
+                url: "action.php",
+                data: {searchProduct:1,keyword:key},
+                success: function (response) {
+                    $("#get_product").html(response);
+                }
+            });
+        }
+    });
 
 });

@@ -224,9 +224,11 @@ ul li span {
 
 
 .container-fluid .panel img{
-    width: 100%;
-    height: 200px;
-    border: 1px solid #ccc;
+    width: 96%;
+    padding: 1%;
+    margin: 1%;
+    height: 180px;
+    /* border: 1px solid #ccc; */
 }
 
 .container-fluid .panel-body #login{
@@ -249,4 +251,8 @@ ul li span {
 }
 .container-fluid .panel-body a{
     line-height: 2;
+}
+
+#get_category,#get_brand{
+    border: 1px solid #ccc;
 }

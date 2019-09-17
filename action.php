@@ -128,6 +128,35 @@
             }
         }
 
+        public function searchProducts($table){
+            $keyword = $_POST['keyword'];
+            $sql = "SELECT * FROM ".$table." WHERE product_keywords LIKE '$keyword%'";
+            $query = mysqli_query($this->conn,$sql);
+            while($row = mysqli_fetch_assoc($query)){
+                if($row > 0){
+                   $pro_id = $row['product_id'];
+                   $pro_cat = $row['product_brand'];
+                   $pro_brand = $row['product_brand'];
+                   $pro_title = $row['product_title'];
+                   $pro_price = $row['product_price'];
+                   $pro_desc = $row['product_desc'];
+                   $pro_image = $row['product_image'];
+                   $pro_keywords = $row['product_keywords'];
+                   echo "
+                     <div class='col-md-4'>
+                        <div class='panel panel-info'>
+                            <div class='panel-heading'>$pro_title</div>
+                            <div class='panel-body'><img src='img/$pro_image'></div>
+                            <div class='panel-heading'>
+                                    $ $pro_price
+                                    <button pid='$pro_id' class='btn btn-danger' id='addCartBtn'>AddToCart</button>
+                            </div>
+                         </div>
+                      </div> ";
+                }
+            }
+        }
+
     }
 
     $obj = new DatabaseOperation();
@@ -148,8 +177,10 @@
     if(isset($_POST['selectedCategory'])){
         $obj->fetchSelectedCategory("products");
     }
-
-    if(isset($_POST['selectedBrand'])){
+     if(isset($_POST['selectedBrand'])){
         $obj->fetchSelectedBrand("products");
+    }
+     if(isset($_POST['searchProduct'])){
+        $obj->searchProducts("products");
     }
 ?>

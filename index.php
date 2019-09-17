@@ -21,8 +21,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
-                    <li><input type="text" class="form-control" placeholder="Search..."id="search"></li>
-                    <li><input type="submit" class="btn btn-primary" value="Search" id="search_btn"></li>
+                    <li><input type="text" class="form-control" placeholder="Search..." id="search"></li>
+                    <li><button  class="btn btn-primary" id="search_btn">Search</button></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
@@ -46,7 +46,6 @@
                             </div>
                         </div>
                     </li>
-
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signin</a>
                         <div class="dropdown-menu">
@@ -81,6 +80,7 @@
                 <div class="col-md-2">
                     <!-- brand & category -->
                     <div id="get_category"> </div>
+                    <div style="display: block; content:''; clear: both;"><br/> <br/> </div>
                     <div id="get_brand"></div>
                    
                 </div>
