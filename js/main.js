@@ -36,4 +36,20 @@ $(document).ready(function() {
             }
         });
     }
+
+    
+    $('body').delegate('.category','click',function(response){
+        response.preventDefault();
+        var cid = $(this).attr('cid');
+        // alert(cid);
+        $.ajax({
+            url: "action.php",
+            method: "POST",
+            data: {getSelected_category:1, cat_id:cid},
+            success: function (response) {
+                $("#get_product").html(response);
+            }
+        });
+    });
+
 });
