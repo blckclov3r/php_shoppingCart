@@ -38,6 +38,8 @@ $(document).ready(function() {
     }
 
     
+
+    
     $('body').delegate('.category','click',function(response){
         response.preventDefault();
         var cid = $(this).attr('cid');
@@ -82,4 +84,18 @@ $(document).ready(function() {
         }
     });
 
+    $("#signup_btn").click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: "register.php",
+            method: "POST",
+            data: $("form").serialize(),
+            success: function(response){
+            //    alert(response);
+            $("#signup_msg").html(response);
+            }
+        });
+      
+    });
+    
 });

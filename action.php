@@ -131,7 +131,7 @@
         }
 
         public function searchProducts($table){
-            $keyword = $_POST['keyword'];
+            $keyword = $this->conn->real_escape_string($_POST['keyword']);
             $sql = "SELECT * FROM ".$table." WHERE product_keywords LIKE '$keyword%'";
             $query = mysqli_query($this->conn,$sql);
             while($row = mysqli_fetch_assoc($query)){
