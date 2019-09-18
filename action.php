@@ -1,5 +1,7 @@
 <?php
+
     require_once 'db.php';
+
     class DatabaseOperation extends Database{
 
         public function fetchCategory($table){
