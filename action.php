@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'db.php';
+    require 'db.php';
 
     class DatabaseOperation extends Database{
 
@@ -185,4 +185,6 @@
      if(isset($_POST['searchProduct'])){
         $obj->searchProducts("products");
     }
+
+    
 ?>

@@ -92,7 +92,7 @@ $(document).ready(function() {
             data: $("form").serialize(),
             success: function(response){
             //    alert(response);
-            $("#signup_msg").html(response);
+              $("#signup_msg").html(response);
             }
         });
       
