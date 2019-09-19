@@ -15,42 +15,70 @@
     $emailValidation = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
     $number = "/^[0-9]+$/";
 
-     if(empty($fname) || empty($lname) || empty($email) || empty($password) || 
-         empty($repassword) || empty($mobile) || empty($address1) || empty($address2)){ 
-            echo"
-             <div class='alert alert-danger' role='alert'>
-             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-             <b>Fill all fields</b>
-              </div> ";
-      }
+    //  if(empty($fname) || empty($lname) || empty($email) || empty($password) || 
+    //      empty($repassword) || empty($mobile) || empty($address1) || empty($address2)){ 
+    //         echo"
+    //          <div class='alert alert-danger' role='alert'>
+    //          <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+    //          <b>Fill all fields</b>
+    //           </div> ";
+    //   }
 
         
         if(!preg_match($name,$fname)){
-                echo $fname." firstname is not valid";
+            echo"
+            <div class='alert alert-danger' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+            <b>Firstname field is required</b>
+             </div> ";
                 exit();
         }
         if(!preg_match($name,$lname)){
-            echo $lname." lastname is not valid";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>Lastname field is required</b>
+              </div> ";
             exit();
         }
         if(!preg_match($emailValidation,$email)){
-            echo $email." adress is not valid";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>Email address is invalid</b>
+              </div> ";
             exit();
         }
         if(strlen($password) < 5){
-            echo "Password is weak, it's < 5";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>Password strength is weak it's lessthan 5 characters length</b>
+              </div> ";
             exit();
         }
         if(strlen($repassword) < 5){
-            echo "rePassword is weak, it's < 5";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>Password strength is weak it's lessthan 5 characters length</b>
+              </div> ";
             exit();
         }
         if($password != $repassword){
-            echo "password is not equal";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>The password you entered is not equal</b>
+              </div> ";
             exit();
         }
         if(!preg_match($number,$mobile)){
-            echo "Mobile number is invalid";
+            echo"
+             <div class='alert alert-danger' role='alert'>
+             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+             <b>Mobile number field is invalid</b>
+              </div> ";
             exit();
         }
     
@@ -61,7 +89,11 @@
         $countEmail = mysqli_num_rows($query);
        
         if($countEmail > 0){
-            echo "The email you entered is not available, Try another email address <br/>";
+            echo"
+            <div class='alert alert-danger' role='alert'>
+            <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+            <b>The email you entered is not available, please use another email address</b>
+             </div> ";
             exit();
         }else{
             echo "Email is available <br/>";
