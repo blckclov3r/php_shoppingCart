@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html> 
 <html class="no-js"> 
     <head>
@@ -25,7 +28,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
-                        <div class="dropdown-menu" style="width: 420px;">
+                        <ul class="dropdown-menu" style="width: 420px;">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -42,30 +45,21 @@
                                     
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signin</a>
-                        <ul class="dropdown-menu">
-                            <div style="width: 320px;">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">Login</div>
-                                    <div class="panel-body">
-                                        <form method="POST">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control"  id="email" required/>
-                                            <label for="password">Password</label>
-                                            <input type="password" class="form-control"  id="password" required/>
-                                            <a href="#" style="list-style: none; text-decoration: none; ">Forgotten Password</a>
-                                            <input type="submit" class="btn btn-success" id="loginBtn" value="Login"/>
-                                        </form>
-                                    </div>
-                                    <div class="panel-footer" id="e_msg"></div>
-                                </div>
-                            </div>
                         </ul>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-user">Signup</span></a></li>
+                    
+                    <li> 
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><?php echo "Hi, ".$_SESSION['name']; ?></span></a>
+                        <ul class="dropdown-menu" style="width: 420px;">
+                            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><span>Change Password</span></a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><span>Logout</span></a></li>
+                        </ul>
+                    </li>
+                 
                 </ul>
             </div>
         </div>

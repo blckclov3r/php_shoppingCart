@@ -236,7 +236,7 @@ ul li span {
     margin-top: 4px;
 }
 
-.dropdown-menu .panel-body:after{
+.dropdown-menu:after{
     display: block;
     content: "";
     clear: both;

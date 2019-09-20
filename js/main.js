@@ -103,7 +103,7 @@ $(document).ready(function() {
         var login_email = $("#email").val();
         var login_password = $("#password").val();
         $.ajax({
-            url: "action.php",
+            url: "login.php",
             method: "POST",
             data: {
                 userLogin:1,
@@ -111,7 +111,10 @@ $(document).ready(function() {
                 password: login_password
             }, 
             success:function(response){
-                alert(response);
+                if(response == "success"){
+                    // alert(response);
+                    window.location.href="profile.php";
+                }
             }
         });
     });
