@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['uid']) && !isset($_SESSION['name'])){
+        header("location: index.php");
+    }
 ?>
 <!DOCTYPE html> 
 <html class="no-js"> 
@@ -56,7 +59,7 @@
                             <li class="divider"></li>
                             <li><a href="#"><span>Change Password</span></a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><span>Logout</span></a></li>
+                            <li><a href="logout.php"><span>Logout</span></a></li>
                         </ul>
                     </li>
                  

@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['uid']) && isset($_SESSION['name'])){
+        header("location: profile.php");
+    }
+?>
 <!DOCTYPE html> 
 <html class="no-js"> 
     <head>
@@ -21,6 +27,7 @@
                     <li><a href="#"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
                     <li><input type="text" class="form-control" placeholder="Search..." id="search"></li>
                     <li><button  class="btn btn-primary" id="search_btn">Search</button></li>
+                   
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 

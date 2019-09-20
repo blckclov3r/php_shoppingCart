@@ -119,5 +119,17 @@ $(document).ready(function() {
         });
     });
 
+    $('body').delegate('#addCartBtn','click',function(event){
+        event.preventDefault();
+        var pid = $(this).attr('pid');
+        $.ajax({
+            url: 'action.php',
+            method: 'POST',
+            data: {addToProduct:1, proId :pid},
+            success: function(response){
+                alert(response);   
+            }
+        });
+    });
    
 });
