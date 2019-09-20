@@ -231,9 +231,15 @@ ul li span {
     /* border: 1px solid #ccc; */
 }
 
-.container-fluid .panel-body #login{
+#loginBtn{
     float: right;
     margin-top: 4px;
+}
+
+.dropdown-menu .panel-body:after{
+    display: block;
+    content: "";
+    clear: both;
 }
 
 .container-fluid .panel-body:after{

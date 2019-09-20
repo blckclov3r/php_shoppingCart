@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="fname">FirstName</label>
-                                        <input type="text" id="fname" name="fname" class="form-control" placeholder="FirstName"/>
+                                        <input type="text" id="fname" name="fname" class="form-control" placeholder="FirstName" />>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="lname">LastName</label>

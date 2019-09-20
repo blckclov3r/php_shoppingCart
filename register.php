@@ -29,7 +29,7 @@
             echo"
             <div class='alert alert-danger' role='alert'>
             <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-            <b>Firstname field is required</b>
+            <b>Firstname field is invalid</b>
              </div> ";
                 exit();
         }
@@ -37,7 +37,7 @@
             echo"
              <div class='alert alert-danger' role='alert'>
              <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-             <b>Lastname field is required</b>
+             <b>Lastname field is invalid</b>
               </div> ";
             exit();
         }

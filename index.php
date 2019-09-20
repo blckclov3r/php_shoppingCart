@@ -51,12 +51,14 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">Login</div>
                                     <div class="panel-body">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" required/>
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" required/>
-                                        <a href="#" style="list-style: none; text-decoration: none; ">Forgotten Password</a>
-                                        <input type="submit" class="btn btn-success" id="login" value="Login"/>
+                                        <form method="POST">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control"  id="email" required/>
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control"  id="password" required/>
+                                            <a href="#" style="list-style: none; text-decoration: none; ">Forgotten Password</a>
+                                            <input type="submit" class="btn btn-success" id="loginBtn" value="Login"/>
+                                        </form>
                                     </div>
                                     <div class="panel-footer" id="e_msg"></div>
                                 </div>

@@ -97,5 +97,24 @@ $(document).ready(function() {
         });
       
     });
-    
+
+    $("#loginBtn").click(function(event){
+        event.preventDefault();
+        var login_email = $("#email").val();
+        var login_password = $("#password").val();
+        $.ajax({
+            url: "action.php",
+            method: "POST",
+            data: {
+                userLogin:1,
+                email: login_email,
+                password: login_password
+            }, 
+            success:function(response){
+                alert(response);
+            }
+        });
+    });
+
+   
 });
