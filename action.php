@@ -173,6 +173,30 @@
            return true;
        }
 
+       public function getCartProduct($table){
+           $uid = $_SESSION['uid'];
+           $sql = "SELECT * FROM $table WHERE user_id ='$uid'";
+           $query = mysqli_query($this->conn,$sql);
+           $no = 1;
+           while($row = mysqli_fetch_assoc($query)){
+                if($row > 0){
+                    $pro_id = $row['p_id'];
+                    $pro_image = $row['product_image'];
+                    $pro_title = $row['product_title'];
+                    $pro_price = $row['price'];
+                    echo "
+                    <div class='row'>
+                        <div class='col-md-3'> $no</div>
+                        <div class='col-md-3'><img style='width: 40px; height: 40px;' src='img/$pro_image'/></div>
+                        <div class='col-md-3'> $pro_title </div>
+                        <div class='col-md-3'>$pro_price </div>
+                    </div>";
+                }
+                $no+=1;
+           }
+           
+       }
+
     }
 
     $obj = new DatabaseOperation();
@@ -218,16 +242,34 @@
                 $product_price = $row['product_price'];
                 $sql = "INSERT INTO cart (p_id, ip_add, user_id, product_title, product_image, qty, price, total_amount) VALUES ( '$id', '0', '$session_id', '$product_name', '$product_image', '1', '$product_price', '$product_price')";
                 if(mysqli_query($db->conn,$sql)){
-                    echo "Product successfully added";
+                    echo"
+                        <div class='alert alert-success' role='alert'>
+                        <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                        <b>Product succesfully added</b>
+                        </div> ";
                 }else{
-                    echo "Error occured, (addToProduct)";
+                    echo"
+                    <div class='alert alert-danger' role='alert'>
+                    <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                    <b>Some error occured</b>
+                     </div> ";
+                     exit();
                 }
             }
           }
        }else{
-           echo "Product is already added into the cart";
+        echo"
+            <div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                <b>Product is already added in the cart</b>
+                </div> ";
+                exit();
        }
      
     }
    
+
+    if(isset($_POST['getCartProduct'])){
+        $obj->getCartProduct("cart");
+    }
 ?>

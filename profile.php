@@ -30,7 +30,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
+                    <li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
                         <ul class="dropdown-menu" style="width: 420px;">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    
+                                    <div id="cart_product"></div>
                                 </div>
                                 <div class="panel-footer">
                                     
@@ -82,6 +82,11 @@
                    
                 </div>
                 <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12" id="product_msg">
+                            
+                        </div>
+                    </div>
                     <div class="panel panel-info">
                         <div class="panel-heading">Products</div>
                         <div class="panel-body">

@@ -15,16 +15,7 @@
     $emailValidation = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9]+(\.[a-z]{2,4})$/";
     $number = "/^[0-9]+$/";
 
-    //  if(empty($fname) || empty($lname) || empty($email) || empty($password) || 
-    //      empty($repassword) || empty($mobile) || empty($address1) || empty($address2)){ 
-    //         echo"
-    //          <div class='alert alert-danger' role='alert'>
-    //          <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-    //          <b>Fill all fields</b>
-    //           </div> ";
-    //   }
-
-        
+   
         if(!preg_match($name,$fname)){
             echo"
             <div class='alert alert-danger' role='alert'>

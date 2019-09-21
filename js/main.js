@@ -43,7 +43,7 @@ $(document).ready(function() {
     $('body').delegate('.category','click',function(response){
         response.preventDefault();
         var cid = $(this).attr('cid');
-        // alert(cid);
+    
         $.ajax({
             url: "action.php",
             method: "POST",
@@ -57,7 +57,7 @@ $(document).ready(function() {
     $('body').delegate('.brand','click',function(response){
         response.preventDefault();
         var bid = $(this).attr('bid');
-        // alert(bid);
+       
         $.ajax({
             url: "action.php",
             method: "POST",
@@ -91,7 +91,6 @@ $(document).ready(function() {
             method: "POST",
             data: $("form").serialize(),
             success: function(response){
-            //    alert(response);
               $("#signup_msg").html(response);
             }
         });
@@ -112,7 +111,6 @@ $(document).ready(function() {
             }, 
             success:function(response){
                 if(response == "success"){
-                    // alert(response);
                     window.location.href="profile.php";
                 }
             }
@@ -127,9 +125,20 @@ $(document).ready(function() {
             method: 'POST',
             data: {addToProduct:1, proId :pid},
             success: function(response){
-                alert(response);   
+                $("#product_msg").html(response);
             }
         });
     });
    
+    $("#cart_container").click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: 'action.php',
+            method: 'POST',
+            data: {getCartProduct:1},
+            success: function(response){
+                $("#cart_product").html(response);
+            }
+        });
+    });
 });
