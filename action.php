@@ -187,7 +187,7 @@
                     echo "
                     <div class='row'>
                         <div class='col-md-3'> $no</div>
-                        <div class='col-md-3'><img style='width: 40px; height: 40px;' src='img/$pro_image'/></div>
+                        <div class='col-md-3'><img class='img-responsive' style='width: 40px; height: 40px;' src='img/$pro_image'/></div>
                         <div class='col-md-3'> $pro_title </div>
                         <div class='col-md-3'>$pro_price </div>
                     </div>";
