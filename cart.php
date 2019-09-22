@@ -23,7 +23,7 @@
                     <a href="#" class="navbar-brand">MyStore</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-modal-window"></span>Product</a></li>
  
                 </ul>
@@ -43,11 +43,13 @@
                                 <div class="col-md-2"><b>Action</b></div>
                                 <div class="col-md-2"><b>Product Image</b></div>
                                 <div class="col-md-2"><b>Product Name</b></div>
-                                <div class="col-md-2"><b>Product Price</b></div>
                                 <div class="col-md-2"><b>Quantity</b></div>
+                                <div class="col-md-2"><b>Product Price</b></div>
                                 <div class="col-md-2"><b>Price in $</b></div>
                             </div>
                             <br/>
+
+                            
                             <div id="cart_checkout"></div>
                             <!-- <div class="row">
                                 <div class="col-md-2">

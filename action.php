@@ -200,15 +200,15 @@
                         <div class='row'>
                             <div class='col-md-2'>
                                 <div class='btn-group'>
-                                    <a href='#' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></a>
-                                    <a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-ok-sign'></span></a>
-                                        </div>
-                                    </div>
-                                    <div class='col-md-2'><img style='width: 50px; height: 50px;' src='img/$pro_image'></div>
-                                    <div class='col-md-2'>Product Name</div>
-                                    <div class='col-md-2'><input type='text' class='form-control' value='1' ></div>
-                                    <div class='col-md-2'><input type='text' class='form-control' value='5000' disabled></div>
-                                    <div class='col-md-2'><input type='text' class='form-control' value='5000' disabled></div>
+                                    <a href='#' remove_id='$pro_id' class='btn btn-danger remove'><span class='glyphicon glyphicon-trash'></span></a>
+                                    <a href='#' update_id='$pro_id' class='btn btn-primary update'><span class='glyphicon glyphicon-ok-sign'></span></a>
+                                </div>
+                            </div>
+                             <div class='col-md-2'><img style='width: 50px; height: 50px;' src='img/$pro_image'></div>
+                             <div class='col-md-2'>$pro_title</div>
+                              <div class='col-md-2'><input type='text' class='form-control qty' pid='$pro_id' id='qty-$pro_id' value='$qty' ></div>
+                               <div class='col-md-2'><input type='text' class='form-control price' pid='$pro_id' id='price-$pro_id' value='$pro_price' disabled></div>
+                            <div class='col-md-2'><input type='text' class='form-control total' pid='$pro_id' id='total-$pro_id' value='$pro_price' disabled></div>
                             </div>";
                     }
 

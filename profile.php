@@ -55,7 +55,7 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><?php echo "Hi, ".$_SESSION['name']; ?></span></a>
                         <ul class="dropdown-menu" style="width: 420px;">
-                            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
+                            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart">Cart</span></a></li>
                             <li class="divider"></li>
                             <li><a href="#"><span>Change Password</span></a></li>
                             <li class="divider"></li>
