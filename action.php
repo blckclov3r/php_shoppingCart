@@ -208,7 +208,7 @@
                              <div class='col-md-2'>$pro_title</div>
                               <div class='col-md-2'><input type='text' class='form-control qty' pid='$pro_id' id='qty-$pro_id' value='$qty' ></div>
                                <div class='col-md-2'><input type='text' class='form-control price' pid='$pro_id' id='price-$pro_id' value='$pro_price' disabled></div>
-                            <div class='col-md-2'><input type='text' class='form-control total' pid='$pro_id' id='total-$pro_id' value='$pro_price' disabled></div>
+                            <div class='col-md-2'><input type='text' class='form-control total' pid='$pro_id' id='total-$pro_id' value='$total' disabled></div>
                             </div>";
                     }
 
@@ -238,6 +238,32 @@
                 <b>Error occured</b>
                  </div> ";
             }
+       }
+
+       public function updateProduct($table){
+           $uid = $_SESSION['uid'];
+           $pid = $_POST['updateId'];
+           $qty = $_POST['qty'];
+           $price = $_POST['price'];
+           $total = $_POST['total'];
+
+           $qty_price = $qty * $price;
+
+           $sql = "UPDATE $table SET qty='$qty', price='$price', total_amount = '$qty_price' WHERE user_id = '$uid' AND p_id = '$pid'";
+           $query = mysqli_query($this->conn,$sql);
+           if($query){
+                echo"
+                <div class='alert alert-success' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                <b>Updated</b>
+                </div> ";
+           }else{
+                echo"
+                <div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                <b>Error occured</b>
+                </div> ";
+           }
        }
 
     }
@@ -321,5 +347,8 @@
         $obj->removeFromCart("cart");
     }
 
-  
+    if(isset($_POST['updateProduct'])){
+        $obj->updateProduct("cart");
+    }
+    
 ?>
