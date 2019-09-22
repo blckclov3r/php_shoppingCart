@@ -33,6 +33,16 @@
         <div style="display: block; content:''; clear: both;"><br/> <br/><br/><br/></div>
 
         <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" id="cart_msg">
+                    <!-- cart message -->
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -49,7 +59,6 @@
                             </div>
                             <br/>
 
-                            
                             <div id="cart_checkout"></div>
                             <!-- <div class="row">
                                 <div class="col-md-2">

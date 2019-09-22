@@ -149,8 +149,7 @@ $(document).ready(function() {
             url: 'action.php',
             data:{cart_checkout: 1},
             success:function(response){
-                $("#cart_checkout").html(response);
-               
+                $("#cart_checkout").html(response); 
             }
         });
     }
@@ -167,8 +166,19 @@ $(document).ready(function() {
     $('body').delegate('.remove','click',function(event){
         event.preventDefault();
         var pid = $(this).attr('remove_id');
-        alert(pid);
+        // alert(pid);
+        $.ajax({
+            url: 'action.php',
+            method: 'POST',
+            data: {removeFromCart:1,removeId:pid},
+            success:function(response){
+                // alert(response);
+                $("#cart_msg").html(response);
+                cart_checkout();
+            }
+        });
     });
+
     $('body').delegate('.update','click',function(event){
         event.preventDefault();
         var pid = $(this).attr('update_id');

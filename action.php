@@ -219,6 +219,27 @@
            
        }
 
+       public function removeFromCart($table){
+            $pid = $_POST['removeId'];
+            $uid = $_SESSION['uid'];
+            // echo $pid;
+            $sql = "DELETE FROM $table WHERE user_id = '$uid' AND p_id = '$pid'";
+            $query = mysqli_query($this->conn,$sql);
+            if($query){
+                echo"
+                    <div class='alert alert-success' role='alert'>
+                    <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                    <b>Removed</b>
+                    </div> ";
+            }else{
+                echo"
+                <div class='alert alert-danger' role='alert'>
+                <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                <b>Error occured</b>
+                 </div> ";
+            }
+       }
+
     }
 
     $obj = new DatabaseOperation();
@@ -294,6 +315,10 @@
     //cart.php & index,profile.php
     if(isset($_POST['getCartProduct']) || isset($_POST['cart_checkout'])){
         $obj->getCartProduct("cart");
+    }
+
+    if(isset($_POST['removeFromCart'])){
+        $obj->removeFromCart("cart");
     }
 
   
