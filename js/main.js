@@ -141,4 +141,17 @@ $(document).ready(function() {
             }
         });
     });
+
+    cart_checkout();
+    function cart_checkout(){
+        $.ajax({
+            method:'POST' ,
+            url: 'action.php',
+            data:{cart_checkout: 1},
+            success:function(response){
+                $("#cart_checkout").html(response);
+               
+            }
+        });
+    }
 });

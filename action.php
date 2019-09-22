@@ -183,14 +183,36 @@
                     $pro_id = $row['p_id'];
                     $pro_image = $row['product_image'];
                     $pro_title = $row['product_title'];
+                    $qty = $row['qty'];
                     $pro_price = $row['price'];
-                    echo "
-                    <div class='row'>
-                        <div class='col-md-3'> $no</div>
-                        <div class='col-md-3'><img class='img-responsive' style='width: 40px; height: 40px;' src='img/$pro_image'/></div>
-                        <div class='col-md-3'> $pro_title </div>
-                        <div class='col-md-3'>$pro_price </div>
-                    </div>";
+                    $total = $row['total_amount'];
+
+                    if(isset($_POST['getCartProduct'])){
+                        echo "
+                        <div class='row'>
+                            <div class='col-md-3'> $no</div>
+                            <div class='col-md-3'><img class='img-responsive' style='width: 40px; height: 40px;' src='img/$pro_image'/></div>
+                            <div class='col-md-3'> $pro_title </div>
+                            <div class='col-md-3'>$pro_price </div>
+                        </div>";
+                    }else if(isset($_POST['cart_checkout'])){
+                        echo "
+                        <div class='row'>
+                            <div class='col-md-2'>
+                                <div class='btn-group'>
+                                    <a href='#' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span></a>
+                                    <a href='#' class='btn btn-primary'><span class='glyphicon glyphicon-ok-sign'></span></a>
+                                        </div>
+                                    </div>
+                                    <div class='col-md-2'><img style='width: 50px; height: 50px;' src='img/$pro_image'></div>
+                                    <div class='col-md-2'>Product Name</div>
+                                    <div class='col-md-2'><input type='text' class='form-control' value='1' ></div>
+                                    <div class='col-md-2'><input type='text' class='form-control' value='5000' disabled></div>
+                                    <div class='col-md-2'><input type='text' class='form-control' value='5000' disabled></div>
+                            </div>";
+                    }
+
+                    
                 }
                 $no+=1;
            }
@@ -269,7 +291,10 @@
     }
    
 
-    if(isset($_POST['getCartProduct'])){
+    //cart.php & index,profile.php
+    if(isset($_POST['getCartProduct']) || isset($_POST['cart_checkout'])){
         $obj->getCartProduct("cart");
     }
+
+  
 ?>

@@ -48,7 +48,7 @@
                                 <div class="col-md-2"><b>Price in $</b></div>
                             </div>
                             <br/>
-                            <div id="cart_check"></div>
+                            <div id="cart_checkout"></div>
                             <!-- <div class="row">
                                 <div class="col-md-2">
                                     <div class="btn-group">
