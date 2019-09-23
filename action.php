@@ -40,7 +40,14 @@
         }
 
         public function fetchProduct($table){
-            $sql = "SELECT * FROM ".$table." ORDER BY RAND() LIMIT 0,9";
+            $limit = 9;
+            $start = 0;
+            if(isset($_POST['setPage'])){
+                $pageno = $_POST['pageNumber'];
+                //formula for pagination
+                $start = ($pageno * $limit) - $limit; 
+            }
+            $sql = "SELECT * FROM ".$table."  LIMIT $start,$limit";
             $query = mysqli_query($this->conn,$sql);
             while($row = mysqli_fetch_assoc($query)){
                 if($row > 0){
@@ -360,6 +367,27 @@
 
     if(isset($_POST['updateProduct'])){
         $obj->updateProduct("cart");
+    }
+
+    if(isset($_POST['page'])){
+        $sql = "SELECT * FROM products";
+        $query = mysqli_query($db->conn,$sql);
+        $count = mysqli_num_rows($query);
+        $pageno =  ceil($count/9);
+        // echo $pageno;
+        for($i = 1;$i<=$pageno;$i++){
+            echo "
+                 <li><a href='#' id='page' page='$i' >$i</a></li>
+            ";
+        }
+    }
+
+    if(isset($_POST['cart_count'])){
+        $uid = $_SESSION['uid'];
+        $sql = "SELECT * FROM cart WHERE user_id ='$uid'";
+        $query = mysqli_query($db->conn,$sql);
+        $count = mysqli_num_rows($query);
+        echo $count;
     }
     
 ?>
