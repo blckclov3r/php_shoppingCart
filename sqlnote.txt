@@ -44,4 +44,22 @@ CREATE TABLE brands(
     brand_id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     brand_title VARCHAR(255) NOT NULL
 );
+
+
+CREATE TABLE customer_order(
+    id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    uid INT(11) NOT NULL,
+    pid INT(11) NOT NULL,
+    p_name VARCHAR(255) NOT NULL,
+    p_price INT(11) NOT NULL,
+    p_qty INT(11) NOT NULL,
+    trx_id VARCHAR(255) NOT NULL);
+
+
+    CREATE TABLE received_payment(
+    id INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    uid INT(11) NOT NULL,
+    pid INT(11) NOT NULL,
+    amount INT(11) NOT NULL,
+    trx_id INT(11) NOT NULL);
     
