@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if(isset($_SESSION['uid']) && isset($_SESSION['name'])){
-       
+    if(!(isset($_SESSION['uid']))){
+       header("location: index.php");
     }
 ?>
 <!DOCTYPE html> 
@@ -33,7 +33,7 @@
         <div style="display: block; content:''; clear: both;"><br/> <br/><br/><br/></div>
 
         <div class="container-fluid">
-            
+
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6" id="cart_msg">
@@ -73,6 +73,14 @@
                                 <div class="col-md-2"><input type='text' class='form-control' value='5000' disabled></div>
                                 <div class="col-md-2"><input type='text' class='form-control' value='5000' disabled></div>
                             </div> -->
+
+                            <!-- <div class="row">
+                                <div class="col-md-8"></div>
+                                <div class="col-md-4 ">
+                                    <b>Total $50000</b>
+                                </div>
+                            </div> -->
+
                         </div>
                         <div class="panel-footer">footer</div>
                     </div>

@@ -178,6 +178,7 @@
            $sql = "SELECT * FROM $table WHERE user_id ='$uid'";
            $query = mysqli_query($this->conn,$sql);
            $no = 1;
+           $total_amt =0;
            while($row = mysqli_fetch_assoc($query)){
                 if($row > 0){
                     $pro_id = $row['p_id'];
@@ -186,6 +187,10 @@
                     $qty = $row['qty'];
                     $pro_price = $row['price'];
                     $total = $row['total_amount'];
+
+                    $price_array = array($total);
+                    $total_sum = array_sum($price_array);
+                    $total_amt = $total_amt + $total_sum;
 
                     if(isset($_POST['getCartProduct'])){
                         echo "
@@ -211,10 +216,16 @@
                             <div class='col-md-2'><input type='text' class='form-control total' pid='$pro_id' id='total-$pro_id' value='$total' disabled></div>
                             </div>";
                     }
-
-                    
                 }
                 $no+=1;
+           }
+           if(isset($_POST['cart_checkout'])){
+                 echo "<div class='row'>
+                    <div class='col-md-8'></div>
+                    <div class='col-md-4'>
+                        <b>Total: $total_amt</b>
+                    </div>
+                </div>";
            }
            
        }
