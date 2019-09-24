@@ -62,4 +62,6 @@ CREATE TABLE customer_order(
     pid INT(11) NOT NULL,
     amount INT(11) NOT NULL,
     trx_id INT(11) NOT NULL);
+
+ ALTER TABLE customer_order ADD p_status VARCHAR(100) NOT NULL AFTER p_qty
     

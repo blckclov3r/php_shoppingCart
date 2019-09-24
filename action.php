@@ -234,6 +234,28 @@
                     </div>
                 </div>";
            }
+
+           echo "
+           <hr/>
+           <div class='row'>
+                <div class='col-md-4'></div>
+                <div class='col-md-8'>
+                    <form action='https://www.sandbox.com/cgi-bin/webscr' method='post'>
+                        <input type='hidden' name='cmd' value='_cart'>
+                        <input type='hidden' name='business' value='shoppingtest@business.example.com'>
+                        <input type='hidden' name='upload' value='1'>
+            
+                        <input type='hidden' name='item_name' value='hat'>
+                        <input type='hidden' name='item_number' value='123'>
+                        <input type='hidden' name='amount' value='15.00'>
+            
+                        <input type='image' name='submit'
+                        src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' alt='PayPal Acceptance'
+                        alt='PayPal - The safer, easier way to pay online'>
+                    </form>
+                </div>
+           </div>
+           ";
            
        }
 

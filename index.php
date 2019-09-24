@@ -109,3 +109,7 @@
         <script src="js/bootstrap.js"></script>
     </body>
 </html>
+
+
+<!-- https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/formbasics/# -->
+<!-- https://developer.paypal.com/docs/classic/api/logos-marks/ -->
