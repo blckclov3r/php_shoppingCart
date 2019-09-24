@@ -226,6 +226,7 @@
                 }
                 $no+=1;
            }
+          
            if(isset($_POST['cart_checkout'])){
                  echo "<div class='row'>
                     <div class='col-md-8'></div>
@@ -233,29 +234,47 @@
                         <b>Total: $total_amt</b>
                     </div>
                 </div>";
-           }
 
-           echo "
+                echo "
            <hr/>
            <div class='row'>
                 <div class='col-md-4'></div>
                 <div class='col-md-8'>
-                    <form action='https://www.sandbox.com/cgi-bin/webscr' method='post'>
+                    <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='POST'>
                         <input type='hidden' name='cmd' value='_cart'>
-                        <input type='hidden' name='business' value='shoppingtest@business.example.com'>
-                        <input type='hidden' name='upload' value='1'>
+                        <input type='hidden' name='business' value='shoppingtest@test.com'>
+                        <input type='hidden' name='upload' value='1'> ";
+ 
+                        $x = 1;
+                        $sql = "SELECT * FROM cart WHERE user_id = '$uid' ";
+                        $query = mysqli_query($this->conn,$sql);
+                        while($row = mysqli_fetch_assoc($query)){
+                           
+                            echo "
+                                <input type='hidden' name='item_name_".$x."' value='".$row['product_title']."'>
+                                <input type='hidden' name='item_number_".$x."' value='".$x."'>
+                                <input type='hidden' name='amount_".$x."' value='".$row['price']."'>
+                                <input type='hidden' name='quantity_".$x."' value='".$row['qty']."'>
+                            ";
             
-                        <input type='hidden' name='item_name' value='hat'>
-                        <input type='hidden' name='item_number' value='123'>
-                        <input type='hidden' name='amount' value='15.00'>
+                            $x+=1;
+                            
+                            
+                        }
+                        
             
-                        <input type='image' name='submit'
+                       
+             echo "    <input type='image' name='submit'
                         src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' alt='PayPal Acceptance'
                         alt='PayPal - The safer, easier way to pay online'>
                     </form>
                 </div>
            </div>
            ";
+           }
+
+        
+           
            
        }
 
