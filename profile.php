@@ -82,11 +82,11 @@
                    
                 </div>
                 <div class="col-md-8">
+                
                     <div class="row">
-                        <div class="col-md-12" id="product_msg">
-                            
-                        </div>
+                        <div class="col-md-12" id="product_msg"></div>
                     </div>
+
                     <div class="panel panel-info">
                         <div class="panel-heading">Products</div>
                         <div class="panel-body">

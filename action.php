@@ -164,20 +164,60 @@
         }
 
        public function addProducts($table,$arr){
-           $id = "";
-           $user_id = $_SESSION['uid'];
-           foreach($arr as $key=>$value){
-               $id .= $key ."='".$value."'";
-           }
-           //retrieve data from cart 
-           $sql = "SELECT * FROM cart WHERE ".$id." AND user_id = '$user_id'";
-           $query = mysqli_query($this->conn,$sql);
-           $count = mysqli_num_rows($query);
-           if($count>0){
-               //if the product not exists in cart respectively to the user
-               return false;
-           }
-           return true;
+           $session_id = $_SESSION['uid'];
+           if(isset($session_id)){
+                $id = "";
+                $user_id = $_SESSION['uid'];
+                foreach($arr as $key=>$value){
+                    $id .= $key ."='".$value."'";
+                }
+                //retrieve data from cart 
+                $sql = "SELECT * FROM cart WHERE ".$id." AND user_id = '$user_id'";
+            
+                $query = mysqli_query($this->conn,$sql);
+                $count = mysqli_num_rows($query);
+                if($count>0){
+                    echo"
+                    <div class='alert alert-danger' role='alert'>
+                        <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                        <b>Product is already added in the cart</b>
+                        </div> ";
+                        exit();
+                }else{
+                
+                    $id = "";
+                    foreach($arr as $key=>$value){
+                        $id .=  $value;
+                    }
+                    $sql = "SELECT * FROM products WHERE product_id = '$id'";
+                    $query = mysqli_query($this->conn,$sql);
+                    while($row = mysqli_fetch_assoc($query)){
+                        if($row > 0){
+                            $id = $row['product_id'];
+                            $product_name = $row['product_title'];
+                            $product_image = $row['product_image'];
+                            $product_price = $row['product_price'];
+                            $sql = "INSERT INTO cart (p_id, ip_add, user_id, product_title, product_image, qty, price, total_amount) VALUES ( '$id', '0', '$session_id', '$product_name', '$product_image', '1', '$product_price', '$product_price')";
+                            if(mysqli_query($this->conn,$sql)){
+                                echo"
+                                    <div class='alert alert-success' role='alert'>
+                                    <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                                    <b>Product succesfully added</b>
+                                    </div> ";
+                            }else{
+                                echo"
+                                <div class='alert alert-danger' role='alert'>
+                                    <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+                                    <b>Error Occured</b>
+                                    </div> ";
+                                        exit();
+                            }
+                        }
+                    }
+                }
+            }
+          
+           
        }
 
        public function getCartProduct($table){
@@ -235,45 +275,45 @@
                     </div>
                 </div>";
 
-                echo "
-           <hr/>
-           <div class='row'>
-                <div class='col-md-4'></div>
-                <div class='col-md-8'>
-                    <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='POST'>
-                        <input type='hidden' name='cmd' value='_cart'>
-                        <input type='hidden' name='business' value='shoppingtest@test.com'>
-                        <input type='hidden' name='upload' value='1'> ";
- 
-                        $x = 1;
-                        $sql = "SELECT * FROM cart WHERE user_id = '$uid' ";
-                        $query = mysqli_query($this->conn,$sql);
-                        while($row = mysqli_fetch_assoc($query)){
-                           
-                            echo "
-                                <input type='hidden' name='item_name_".$x."' value='".$row['product_title']."'>
-                                <input type='hidden' name='item_number_".$x."' value='".$x."'>
-                                <input type='hidden' name='amount_".$x."' value='".$row['price']."'>
-                                <input type='hidden' name='quantity_".$x."' value='".$row['qty']."'>
-                            ";
-            
-                            $x+=1;
-                            
-                            
-                        }
-                        
-            
-                       
-             echo "    <input type='image' name='submit'
-                        src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' alt='PayPal Acceptance'
-                        alt='PayPal - The safer, easier way to pay online'>
-                    </form>
-                </div>
-           </div>
-           ";
+              
            }
 
+            echo "
+            <hr/>
+                <div class='row'>
+         
+            <div class='col-md-8'>
+                <form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='POST'>
+                    <input type='hidden' name='cmd' value='_cart'>
+                    <input type='hidden' name='business' value='shoppingtest@test.com'>
+                    <input type='hidden' name='upload' value='1'> ";
+
+                    $x = 1;
+                    $sql = "SELECT * FROM cart WHERE user_id = '$uid' ";
+                    $query = mysqli_query($this->conn,$sql);
+                    while($row = mysqli_fetch_assoc($query)){
+                        
+                        echo "
+                            <input type='hidden' name='item_name_".$x."' value='".$row['product_title']."'>
+                            <input type='hidden' name='item_number_".$x."' value='".$x."'>
+                            <input type='hidden' name='amount_".$x."' value='".$row['price']."'>
+                            <input type='hidden' name='quantity_".$x."' value='".$row['qty']."'>
+                        ";
         
+                        $x+=1;
+                        
+                        
+                    }
+                    
+        
+                    
+            echo "    <input type='image' name='submit'
+                    src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png' alt='PayPal Acceptance'
+                    alt='PayPal - The safer, easier way to pay online'>
+                </form>
+            </div>
+        </div>
+        ";
            
            
        }
@@ -354,46 +394,22 @@
 
     //different method for retrieval
     if(isset($_POST['addToProduct'])){
-       $id = $_POST['proId'];
-       $session_id = $_SESSION['uid'];
-       $arr = array(
-         "p_id"=>$id
-       );
-       if($obj->addProducts("products",$arr)){
-          $sql = "SELECT * FROM products WHERE product_id = '$id'";
-          $query = mysqli_query($db->conn,$sql);
-          while($row = mysqli_fetch_assoc($query)){
-            if($row > 0){
-                $id = $row['product_id'];
-                $product_name = $row['product_title'];
-                $product_image = $row['product_image'];
-                $product_price = $row['product_price'];
-                $sql = "INSERT INTO cart (p_id, ip_add, user_id, product_title, product_image, qty, price, total_amount) VALUES ( '$id', '0', '$session_id', '$product_name', '$product_image', '1', '$product_price', '$product_price')";
-                if(mysqli_query($db->conn,$sql)){
-                    echo"
-                        <div class='alert alert-success' role='alert'>
-                        <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-                        <b>Product succesfully added</b>
-                        </div> ";
-                }else{
-                    echo"
-                    <div class='alert alert-danger' role='alert'>
-                    <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-                    <b>Some error occured</b>
-                     </div> ";
-                     exit();
-                }
-            }
-          }
-       }else{
-        echo"
-            <div class='alert alert-danger' role='alert'>
-                <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
-                <b>Product is already added in the cart</b>
-                </div> ";
-                exit();
-       }
-     
+        
+        $id = $_POST['proId'];
+        $arr = array(
+            "p_id"=>$id
+        );
+        if(isset($_SESSION['uid'])){
+            $obj->addProducts("products",$arr);
+        }else{
+            echo"
+              <div class='alert alert-danger' role='alert'>
+              <a href='#' class='close' data-dismiss='alert' aria-label='Close'>&times;</a>
+              <b>Please login first</b>
+              </div> ";
+              exit();
+        }
+        
     }
    
 
@@ -424,11 +440,13 @@
     }
 
     if(isset($_POST['cart_count'])){
-        $uid = $_SESSION['uid'];
-        $sql = "SELECT * FROM cart WHERE user_id ='$uid'";
-        $query = mysqli_query($db->conn,$sql);
-        $count = mysqli_num_rows($query);
-        echo $count;
+        if(isset($_SESSION['uid'])){
+            $uid = $_SESSION['uid'];
+            $sql = "SELECT * FROM cart WHERE user_id ='$uid'";
+            $query = mysqli_query($db->conn,$sql);
+            $count = mysqli_num_rows($query);
+            echo $count;
+        }
     }
     
 ?>
